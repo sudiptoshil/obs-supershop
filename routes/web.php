@@ -79,28 +79,26 @@ Route::namespace ('Demo')->group(function () {
     Route::get('/demoLogin', 'Demo@demoLogin')->name('demoLogin');
 });
 //***** end Demo *******//
+Auth::routes();
 
-// for type mamagement . .
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+    // for type mamagement ************//
 Route::namespace ('Admin')->group(function () {
     Route::get('/manage-type', 'TypeController@index')->name('manage-type');
     Route::get('/add-type', 'TypeController@add_type')->name('add-type');
     Route::post('/save-type', 'TypeController@save_type')->name('save-type');
 });
-
+    // Setting management ****************//
 Route::namespace ('Admin')->group(function () {
     Route::get('/type/{idx}', 'SettingController@index')->name('type');
     Route::get('/add-setting/{idx}', 'SettingController@add_setting')->name('add-setting');
     Route::post('/save-setting', 'SettingController@save_setting')->name('save-setting');
     Route::get('/edit-setting/{id}', 'SettingController@edit_setting')->name('edit-setting');
     Route::patch('/update-setting/{id}', 'SettingController@update_setting')->name('update-setting');
-    
-
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

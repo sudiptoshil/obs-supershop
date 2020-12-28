@@ -19,7 +19,7 @@ class CreateSettingsTable extends Migration
             $table->foreign('type_id')->references('id')->on('types');
             $table->string('name_eng');
             $table->string('name_local');
-            $table->tinyInteger('status')->comment('active =1 and inactive=2')->default(1);
+            // $table->tinyInteger('status')->comment('active =1 and inactive=2')->default(1);
             $table->unsignedBigInteger('warehouse_id');
             $table->foreign('warehouse_id')->references('id')->on('warehouses');
             $table->unsignedBigInteger('created_by');
